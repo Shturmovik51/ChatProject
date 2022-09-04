@@ -11,6 +11,7 @@ public class Server : MonoBehaviour
     private int unreliableChannel;
     private bool isStarted = false;
     private byte error;
+
     List<string> _commands = new List<string>()
     {
         "changename",
@@ -21,9 +22,8 @@ public class Server : MonoBehaviour
 
     public void StartServer()
     {
+        if (isStarted) return;
 
-        
-        
         NetworkTransport.Init();//инициаализая
         ConnectionConfig cc = new ConnectionConfig();
       //cc.ConnectTimeout = 500; //
